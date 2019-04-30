@@ -1,11 +1,11 @@
 {
     "disableAutoUpdate": false,
     "name": "infinity-journal",
-    "author": "Seren/Pinkie-Pie/ayylmar(JustPassingBy)",
+    "author": "Owyn/Seren/Pinkie-Pie/ayylmar(JustPassingBy)",
     "description":"Adds infinite entries to journal",
     "version":"1.0.0",
     "options": {
         "niceName": "InfinityJournal"
     },
-    "servers": ["https://raw.githubusercontent.com/SerenTera/infinity-journal/master/"]
+    "servers": ["https://raw.githubusercontent.com/Owyn/infinity-journal/master/"]
 }

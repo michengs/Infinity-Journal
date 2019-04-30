@@ -1,8 +1,8 @@
 const path = require('path'),
 	fs = require('fs')
 
-const ITEM_ATLAS = 181116,
-	ITEM_JOURNAL = 181117,
+const ITEM_ATLAS = 213302,
+	ITEM_JOURNAL = 213301,
 	CONTRACT_ATLAS = 53,
 	CONTRACT_JOURNAL = 54
 
