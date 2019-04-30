@@ -1,8 +1,8 @@
 const path = require('path'),
 	fs = require('fs')
 
-const ITEM_ATLAS = 213302,
-	ITEM_JOURNAL = 213301,
+const ITEM_ATLAS = [213302,181116], // NA/EU
+	ITEM_JOURNAL = [213301,181117],
 	CONTRACT_ATLAS = 53,
 	CONTRACT_JOURNAL = 54
 
@@ -84,8 +84,8 @@ module.exports = function InfinityJournal(dispatch) {
 		slotJournal = -1
 
 		for(let inv of event.inventory)
-			if(inv.item == ITEM_ATLAS) slotAtlas = inv.slot
-			else if(inv.item == ITEM_JOURNAL) slotJournal = inv.slot
+			if(inv.item == ITEM_ATLAS[0] || inv.item == ITEM_ATLAS[1]) slotAtlas = inv.slot
+			else if(inv.item == ITEM_JOURNAL[0] || inv.item == ITEM_JOURNAL[1]) slotJournal = inv.slot
 	})
 
 	dispatch.hook('S_LOAD_TELEPORT_TO_POS_LIST', 1, event => {
