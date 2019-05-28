@@ -1,5 +1,5 @@
 {
-    "disableAutoUpdate": true,
+    "disableAutoUpdate": false,
     "name": "infinity-journal",
     "author": "Owyn/Seren/Pinkie-Pie/ayylmar(JustPassingBy)",
     "description":"Adds infinite entries to journal",

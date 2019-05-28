@@ -2,7 +2,7 @@
 	"files": {
 		"README.md": "83a2b10d809775deb18f92f2056989ff4e2f6c44a88d932ac56157016bbc4902",
 		"index.js": "6b00b2d471c203e55eba20cd2de2f89d45b79d9b1187747c652af87e70c0bedb",
-		"module.json": "12dc624e1ae6ea0f7edacc9d27b8900c7847d60e9067a51559329545a91e7a26"
+		"module.json": "6c7708c00568779f002225798cc951e79fd990b8e393f9426d07b7d11f79ec49"
 	},
 	"defs": {
 		"C_ADD_TELEPORT_TO_POS_LIST": 1,
