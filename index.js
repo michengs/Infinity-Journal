@@ -22,7 +22,8 @@ module.exports = function InfinityJournal(dispatch) {
 		slotJournal = -1,
 		currentContract = null,
 		teleportingTo = null,
-		newCustom = ''
+		newCustom = '',
+		hold = false
 
 	try {
 		customLocations = require('./journal.json')
@@ -44,11 +45,22 @@ module.exports = function InfinityJournal(dispatch) {
 
 		return false
 	})
+	
+	dispatch.command.add('hold', () => {
+		hold = !hold
+		message('<font color="#ff0000">Hold is now: </font>' + hold)
+	})
+	
+	dispatch.command.add('unhold', () => {
+		dispatch.send('S_ADMIN_HOLD_CHARACTER', 2, {hold: false})
+		message('<font color="#ff0000">Un-Holded</font>')
+	})
+	
 		
 ////Hooks	
 	dispatch.game.on('enter_game', () => {
 		cid = dispatch.game.me.gameId
-		slotAtlas = slotJournal = -1
+		//slotAtlas = slotJournal = -1
 		currentContract = teleportingTo = null
 	})
 
@@ -61,9 +73,16 @@ module.exports = function InfinityJournal(dispatch) {
 
 	dispatch.hook('C_TELEPORT_TO_POS', 1, event => {
 		if(event.index >= serverLocations.length) {
-			if(slotAtlas != -1) {
+			if(slotAtlas !== -1) {
 				teleportingTo = customLocations[event.index - serverLocations.length]
-				dispatch.toServer('C_PCBANGINVENTORY_USE_SLOT', 1, { slot: slotAtlas })
+				if(dispatch.majorPatchVersion >= 82)
+				{
+					dispatch.toServer('C_USE_PREMIUM_SLOT', 1, slotAtlas)
+				}
+				else
+				{
+					dispatch.toServer('C_PCBANGINVENTORY_USE_SLOT', 1, { slot: slotAtlas })
+				}
 			}
 			else message('<font color="#ff0000">You must have Elite status to teleport to a custom location.</font>')
 			return false
@@ -79,14 +98,29 @@ module.exports = function InfinityJournal(dispatch) {
 		}
 	})
 
+if(dispatch.majorPatchVersion >= 82)
+{
+	dispatch.hook('S_PREMIUM_SLOT_DATALIST', 2, event => {
+		slotAtlas = -1
+		slotJournal = -1
+
+		for(let set of event.sets)
+			for(let inv of set.inventory)
+				if(ITEM_ATLAS.includes(inv.id)) slotAtlas = {set: set.id, slot: inv.slot, type: inv.type, id: inv.id}
+				else if(ITEM_JOURNAL.includes(inv.id)) slotJournal = {set: set.id, slot: inv.slot, type: inv.type, id: inv.id}
+	})
+}
+else
+{
 	dispatch.hook('S_PCBANGINVENTORY_DATALIST', 1, event => {
 		slotAtlas = -1
 		slotJournal = -1
 
 		for(let inv of event.inventory)
-			if(inv.item == ITEM_ATLAS[0] || inv.item == ITEM_ATLAS[1]) slotAtlas = inv.slot
-			else if(inv.item == ITEM_JOURNAL[0] || inv.item == ITEM_JOURNAL[1]) slotJournal = inv.slot
+			if(ITEM_ATLAS.includes(inv.item)) slotAtlas = inv.slot
+			else if(ITEM_JOURNAL.includes(inv.item)) slotJournal = inv.slot
 	})
+}
 
 	dispatch.hook('S_LOAD_TELEPORT_TO_POS_LIST', 1, event => {
 		for(let i = 0; i < event.locations.length; i++) {
@@ -147,6 +181,10 @@ module.exports = function InfinityJournal(dispatch) {
 			event.loc.y = teleportingTo.y
 			event.loc.z = teleportingTo.z
 			return true
+			if(hold)
+			{
+				process.nextTick(() => { dispatch.send('S_ADMIN_HOLD_CHARACTER', 2, {hold: true}) })
+			}
 		}
 	})
 		
