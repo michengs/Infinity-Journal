@@ -26,7 +26,7 @@ module.exports = function InfinityJournal(dispatch) {
 		hold = false
 
 	try {
-		customLocations = require('./journal.json')
+		customLocations = JSON.parse(fs.readFileSync(path.join(__dirname, 'journal.json'), "utf8"))
 	}
 	catch(e) {}
 
@@ -204,7 +204,7 @@ else
 
 		return custom
 	}
-
+	
 	function saveCustom() {
 		fs.writeFileSync(path.join(__dirname, 'journal.json'), JSON.stringify(customLocations))
 	}
