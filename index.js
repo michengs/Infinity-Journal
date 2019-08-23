@@ -3,8 +3,8 @@ const path = require('path'),
 
 const ITEM_ATLAS = [213302,181116], // NA/EU
 	ITEM_JOURNAL = [213301,181117],
-	CONTRACT_ATLAS = 53,
-	CONTRACT_JOURNAL = 54
+	CONTRACT_ATLAS = (mod.majorPatchVersion >= 85 ? 54 : 53),
+	CONTRACT_JOURNAL = (mod.majorPatchVersion >= 85 ? 55 : 54)
 
 const specialCases = {
     "7015": 71001,
