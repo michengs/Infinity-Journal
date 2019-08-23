@@ -2,9 +2,7 @@ const path = require('path'),
 	fs = require('fs')
 
 const ITEM_ATLAS = [213302,181116], // NA/EU
-	ITEM_JOURNAL = [213301,181117],
-	CONTRACT_ATLAS = (mod.majorPatchVersion >= 85 ? 54 : 53),
-	CONTRACT_JOURNAL = (mod.majorPatchVersion >= 85 ? 55 : 54)
+	ITEM_JOURNAL = [213301,181117]
 
 const specialCases = {
     "7015": 71001,
@@ -24,6 +22,9 @@ module.exports = function InfinityJournal(dispatch) {
 		teleportingTo = null,
 		newCustom = '',
 		hold = false
+		
+	const	CONTRACT_ATLAS = (dispatch.majorPatchVersion >= 85 ? 54 : 53),
+			CONTRACT_JOURNAL = (dispatch.majorPatchVersion >= 85 ? 55 : 54)
 
 	try {
 		customLocations = JSON.parse(fs.readFileSync(path.join(__dirname, 'journal.json'), "utf8"))
