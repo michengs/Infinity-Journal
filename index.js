@@ -35,7 +35,7 @@ module.exports = function InfinityJournal(mod) {
 		mod.send('C_USE_PREMIUM_SLOT', 1, slotAtlas)
 	})
 	
-	mod.command.add('ij', (name, province) => {
+	mod.command.add(['journal', 'ij'], (name, province) => {
 		if (!currentContract || currentContract.type != CONTRACT_ATLAS) {
 			message('"地区移动书" 开启状态才能保存 自定义位置')
 			return false
