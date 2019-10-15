@@ -37,7 +37,7 @@ module.exports = function InfinityJournal(mod) {
 	
 	mod.command.add(['journal', 'ij'], (name, province) => {
 		if (!currentContract || currentContract.type != CONTRACT_ATLAS) {
-			message('"地区移动书" 开启状态才能保存 自定义位置')
+			sendMessage('"地区移动书" 开启状态才能保存 自定义位置')
 			return false
 		}
 		
@@ -51,14 +51,14 @@ module.exports = function InfinityJournal(mod) {
 	
 	mod.command.add('hold', () => {
 		hold = !hold
-		message('Hold is now: ' + hold)
+		sendMessage('Hold is now: ' + hold)
 	})
 	
 	mod.command.add('unhold', () => {
 		mod.send('S_ADMIN_HOLD_CHARACTER', 2, {
 			hold: false
 		})
-		message('Un-Holded')
+		sendMessage('Un-Holded')
 	})
 	
 	mod.game.on('enter_game', () => {
@@ -88,19 +88,18 @@ module.exports = function InfinityJournal(mod) {
 				
 				mod.setTimeout(()=> {
 					mod.send('C_USE_PREMIUM_SLOT', 1, slotJournal)
-					if (!teleportingTo) message('传送至 ' + teleportingTo.name)
+					if (!teleportingTo) sendMessage('传送至 ' + teleportingTo.name)
 				, 2000})
 			} else {
-				message('未检测到 "旅行者之書：地區移動"')
+				sendMessage('未检测到 "旅行者之書：地區移動"')
 				return false
 			}
-			message('')
 		}
 	})
 	
 	mod.hook('C_DELETE_TELEPORT_TO_POS_LIST', 1, (event) => {
 		if (event.index >= serverLocations.length) {
-			message('已删除 ' + customLocations[event.index - serverLocations.length].name)
+			sendMessage('已删除 ' + customLocations[event.index - serverLocations.length].name)
 			
 			customLocations.splice(event.index - serverLocations.length, 1)
 			
@@ -153,7 +152,7 @@ module.exports = function InfinityJournal(mod) {
 					})
 					customLocations.sort((a, b) => a.name.localeCompare(b.name))
 					saveCustom()
-					message('已保存位置 ' + newCustom)
+					sendMessage('已保存位置 ' + newCustom)
 					newCustom = ''
 				}
 				mod.send('C_DELETE_TELEPORT_TO_POS_LIST', 1, {
@@ -181,7 +180,7 @@ module.exports = function InfinityJournal(mod) {
 					return false
 				}
 			}
-			message('Zone ' + teleportingTo.zone + ' not found in Village Atlas')
+			sendMessage('Zone ' + teleportingTo.zone + ' not found in Village Atlas')
 			teleportingTo = null
 		}
 	})
@@ -230,7 +229,5 @@ module.exports = function InfinityJournal(mod) {
 		fs.writeFileSync(path.join(__dirname, 'journal.json'), JSON.stringify(customLocations, null, '    '))
 	}
 	
-	function message(msg) {
-		mod.command.message(msg)
-	}
+	function sendMessage(msg) { mod.command.message(msg) }
 }

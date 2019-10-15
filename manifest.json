@@ -1,0 +1,22 @@
+{
+    "files": {
+        "index.js": "34a1b4d066900cc3050c18b1d3881e764b7b61d2d0ac85b937739691432a8d1c",
+        "module.json": "a9f446b23a0295c3ddf58535c48ea6f39615c10b502df7b41fca6b905e3867a3"
+    },
+    "defs": {
+        "C_ADD_TELEPORT_TO_POS_LIST": 1,
+        "C_DELETE_TELEPORT_TO_POS_LIST": 1,
+        "C_TELEPORT_TO_POS": 1,
+        "C_TELEPORT_TO_VILLAGE": 1,
+        "C_USE_PREMIUM_SLOT": 1,
+        "S_ACTION_END": 5,
+        "S_ADMIN_HOLD_CHARACTER": 2,
+        "S_CANCEL_CONTRACT": 1,
+        "S_LOAD_TELEPORT_TO_POS_LIST": 1,
+        "S_LOAD_TOPO": 3,
+        "S_PREMIUM_SLOT_DATALIST": 2,
+        "S_REQUEST_CONTRACT": 1,
+        "S_SPAWN_ME": 3,
+        "S_VILLAGE_LIST_TO_TELEPORT": 1
+    }
+}

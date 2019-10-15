@@ -12,3 +12,5 @@ This version of Infinity Journal is a very old copy, with fixes done to bring it
 
 ## Issues
 - If you use quick-load, make sure you move at least once after using journal before teleporting somewhere else/using journal again.
+
+# VIP的[旅行者之書：地區移動]保存无限个数的 位置
