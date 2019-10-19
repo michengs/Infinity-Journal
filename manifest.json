@@ -1,22 +1,23 @@
 {
-    "files": {
-        "index.js": "34a1b4d066900cc3050c18b1d3881e764b7b61d2d0ac85b937739691432a8d1c",
-        "module.json": "a9f446b23a0295c3ddf58535c48ea6f39615c10b502df7b41fca6b905e3867a3"
-    },
-    "defs": {
-        "C_ADD_TELEPORT_TO_POS_LIST": 1,
-        "C_DELETE_TELEPORT_TO_POS_LIST": 1,
-        "C_TELEPORT_TO_POS": 1,
-        "C_TELEPORT_TO_VILLAGE": 1,
-        "C_USE_PREMIUM_SLOT": 1,
-        "S_ACTION_END": 5,
-        "S_ADMIN_HOLD_CHARACTER": 2,
-        "S_CANCEL_CONTRACT": 1,
-        "S_LOAD_TELEPORT_TO_POS_LIST": 1,
-        "S_LOAD_TOPO": 3,
-        "S_PREMIUM_SLOT_DATALIST": 2,
-        "S_REQUEST_CONTRACT": 1,
-        "S_SPAWN_ME": 3,
-        "S_VILLAGE_LIST_TO_TELEPORT": 1
-    }
+	"files": {
+		"README.md": "10e1f5d11be78dfc86a86b7019e5eed60ba47226894fbc7c4e40f24d75bf90c4",
+		"index.js": "caa0b9e9e6b4826dd29b46fd69a2113b5b67d0c0df5f5c4e7cbee9d4617a38bb",
+		"module.json": "74fa4cb28a8b7c48d20f7068bf4ab433bd454a46fa1719e5b34d4aaf3b4bd8fd"
+	},
+	"defs": {
+		"C_ADD_TELEPORT_TO_POS_LIST": 1,
+		"C_DELETE_TELEPORT_TO_POS_LIST": 1,
+		"C_TELEPORT_TO_POS": 1,
+		"C_TELEPORT_TO_VILLAGE": 1,
+		"C_USE_PREMIUM_SLOT": 1,
+		"S_ACTION_END": 5,
+		"S_ADMIN_HOLD_CHARACTER": 2,
+		"S_CANCEL_CONTRACT": 1,
+		"S_LOAD_TELEPORT_TO_POS_LIST": 1,
+		"S_LOAD_TOPO": 3,
+		"S_PREMIUM_SLOT_DATALIST": 2,
+		"S_REQUEST_CONTRACT": 1,
+		"S_SPAWN_ME": 3,
+		"S_VILLAGE_LIST_TO_TELEPORT": 1
+	}
 }

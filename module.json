@@ -1,12 +1,13 @@
 {
-    "name": "Infinity-Journal",
-    "options": {
-        "niceName": "无限存点",
-        "guiName": "无限存点(Infinity-Journal)"
-    },
-    "author": "ZC / Owyn / JustPassingBy / Pinkie-Pie",
-    "description": "VIP的[旅行者之書：地區移動]保存无限个数的位置",
-    "servers": ["https://raw.githubusercontent.com/tera-mod/Infinity-Journal/master/"],
-    "supportUrl": "https://github.com/tera-mod/Infinity-Journal/issues",
-    "version": "86.05"
+	"disableAutoUpdate": false,
+	"name": "Infinity-Journal",
+	"options": {
+		"niceName": "无限存点",
+		"guiName": "无限存点(Infinity-Journal)"
+	},
+	"author": "ZC / Owyn / JustPassingBy / Pinkie-Pie",
+	"description": "VIP的[旅行者之書：地區移動]保存无限个数的位置",
+	"servers": ["https://raw.githubusercontent.com/michengs/Infinity-Journal/master/"],
+	"supportUrl": "https://github.com/michengs/Infinity-Journal/pulls",
+	"version": "86.05"
 }
